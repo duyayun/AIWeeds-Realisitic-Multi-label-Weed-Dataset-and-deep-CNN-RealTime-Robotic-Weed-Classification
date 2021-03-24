@@ -54,13 +54,13 @@ Then we have all environments needed. In this process, some wheels might build f
 ### Environment installation on linux or Windows ###
 Firstly, please create conda environment with python version greater or equal to 3.6.6. Then you can follow these commands to install the requirements needed. 
 ```bash  
-conda install pandas>=0.23.4
-conda install keras>=2.2.4
+conda install pandas
+conda install keras
 conda install tensorflow-gpu>=1.11.0
-conda install numpy>=1.15.2
-conda install scipy>=1.1.0
-conda install scikit-learn>=0.20.0
-conda install scikit-image>=0.14.1
+conda install numpy
+conda install scipy
+conda install scikit-learn
+conda install scikit-image
 ```
 Then it should work fine.
 
