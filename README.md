@@ -64,4 +64,20 @@ conda install scikit-image>=0.14.1
 ```
 Then it should work fine.
 
-## Training and Results
+## Training and Results ##
+In order to train the model please follow the example command:
+```bash
+python3 deepweeds_dataframe_multioutput_test_2nd_version.py cross_validate --model resnet50
+```
+This is a command that will train based on resnet50 model. We also provide the training based on other models including inceptionv3, mobilenetv2, nannetmobile, efficientnetb0, vgg19, xception, and densenet121. Just just change to option after --model to the name of the model you want to train.
+Also, if you want to change the epoches or batchs, please modify the parameter.
+
+Then, if you want to run inference, please create the csv in the similar format as we provided, and change the directory to load the inference image in the code function.
+To measure inference time, following command will be helpful:
+```bash
+python3 deepweeds_dataframe_multioutput_test_2nd_version.py inference --model models/resnet.hdf5
+```
+Where the item after option --model is the directory where the trained model is saved.
+This will generate the inference results and timing.
+
+## TensorRT speed up ##
