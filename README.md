@@ -81,3 +81,27 @@ Where the item after option --model is the directory where the trained model is 
 This will generate the inference results and timing.
 
 ## TensorRT speed up ##
+In order to speed up the inference on Nvidia platform, we can use TensorRT. The basic steps are as followed:
+1. Freeze the model to pb image file 
+2. Transfer the pb image generated in step1 to the Nvidia platform
+3. Get nodes name by running program
+4. Run inference
+Now let me discuss each step in detail
+
+### Freeze model ###
+In the file freeze_model.py, please change parameter save_pb_dir as the directory where you are about to save the first-level pb file, model_fname as the directory where the hdf5 file that is about to be transformed saved, parameter save_pb_name as the name of the first-level pb file to be saved, and at the last line, please specify the directory and name of the tensorRT pb file to save. Then use
+```bash
+python3 freeze_model.py
+```
+Then please transfer the tensorRT pb file to the Nvidia platform.
+
+### Get nodes name and run inference on Nvidia platform ###
+Please modify the directory in get_nodes.py and run it to get the name of the nodes.
+Then modify the inference_on_trt3.py. Change two parameters input_names and output_names as the first and last nodes printed out in last step. Then change the directory in get_frozen_graph function to read tensorRT graph, and lastly, directory to read inference picture in code 
+```bash
+pics_names = os.listdir(" ")
+pics_dir = "" + pics_names[i]
+``` 
+and then run the inference
+
+
